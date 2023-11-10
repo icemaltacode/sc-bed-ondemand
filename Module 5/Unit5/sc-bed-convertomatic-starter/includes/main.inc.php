@@ -150,7 +150,7 @@ if (filter_var($_SERVER['REQUEST_METHOD'], FILTER_UNSAFE_RAW, FILTER_NULL_ON_FAI
     ?>
     <div class="p-2 g-col-12">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body">w
                 <?php
                 if (isset($result)) {
                     printf("<h3>%.{$accuracy}f%s = %.{$accuracy}f%s</h3>", $result['fromValue'], $result['fromUnit'], $result['toValue'], $result['toUnit']);

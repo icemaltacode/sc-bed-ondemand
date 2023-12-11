@@ -36,5 +36,7 @@ $menuItems = [
             </div>
         </div>
     </nav>
+    
 </div>
+
 <script type="text/javascript" src="js/darkmode.js"></script>

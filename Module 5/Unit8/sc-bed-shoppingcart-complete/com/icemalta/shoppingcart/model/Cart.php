@@ -20,7 +20,7 @@ class CartItem
     }
 }
 
-class Cart
+class Cart 
 {
     private DBConnect $db;
     private ?int $userId;
@@ -49,6 +49,7 @@ class Cart
         $this->cartItems = $data['cartItems'];
         $this->db = DBConnect::getInstance();
     }
+
     public function upsertProduct(Product $product, int $qty): array
     {
         if ($qty < 1) {

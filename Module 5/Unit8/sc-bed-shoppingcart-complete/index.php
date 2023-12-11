@@ -5,6 +5,7 @@ require 'com/icemalta/shoppingcart/model/Product.php';
 require 'com/icemalta/shoppingcart/model/Cart.php';
 session_start();
 
+
 // Show the correct view
 $views = ['products', 'cart', 'checkout', 'login', 'register', 'account'];
 $currentView = 'products';

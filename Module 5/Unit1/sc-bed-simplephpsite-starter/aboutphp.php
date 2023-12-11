@@ -2,8 +2,9 @@
 <html lang="en">
 
 <?php include 'includes/head.php' ?>
+
 <body>
-<?php include 'includes/menu.php' ?>
+    <?php include 'includes/menu.php' ?>
 
     <div class="container">
         <h1>PHP</h1>

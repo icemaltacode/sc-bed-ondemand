@@ -2,7 +2,7 @@
 namespace com\icemalta\jobapp\client\controller;
 
 use com\icemalta\jobapp\client\controller\{
-    Controller,
+    Controller, 
     ListingController,
     UserController
 };
@@ -14,8 +14,7 @@ class RouteController extends Controller
     private static string $colour = 'light';
     private static string $currentView = 'Listings';
 
-    public static function showView(string $view, ?array $params = []): void
-    {
+    public static function showView(string $view, ?array $params = []): void {
         self::$currentView = ucfirst($view);
         self::$colour = $_SESSION['colour'] ?? self::$colour;
         $params['currentView'] = self::$currentView;
@@ -51,7 +50,7 @@ class RouteController extends Controller
 
     public static function viewRegister(array $params, array $data): void
     {
-        self::showView('register', $params);    
+        self::showView('register', $params);
     }
 
     public static function viewListings(array $params, array $data): void
@@ -114,7 +113,7 @@ class RouteController extends Controller
         self::showView('login', $params);
     }
 
-    public static function actionApply(array $params, array $data): void
+    public static function actionApply(array $params, array $data): void 
     {
         $result = UserController::apply($params, $data);
         if (isset($result->data)) {

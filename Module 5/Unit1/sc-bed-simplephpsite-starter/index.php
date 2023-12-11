@@ -4,11 +4,12 @@
 ?>
 <!doctype html>
 <html lang="en">
+
 <?php include 'includes/head.php' ?>
 
 <body>
     <?php include 'includes/menu.php' ?>
-    
+
     <div class="container">
         <h1>Learning PHP</h1>
         <p>Welcome to the <strong>Learning PHP</strong> home page!</p>

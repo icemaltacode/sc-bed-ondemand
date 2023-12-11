@@ -85,4 +85,5 @@ class Product
         $this->requiresDeposit = $requiresDeposit;
         return $this;
     }
+
 }

@@ -24,6 +24,7 @@ function getDnsRecordValue(array $record): int|string
             return 'Unsupported record type';
     }
 }
+
 function getMastodonPosts(string $tag)
 {
     $url = "https://mastodon.social/api/v1/timelines/tag/$tag?limit=12";
@@ -43,7 +44,6 @@ function getMastodonPosts(string $tag)
     <div class="container">
         <h1>PHP @ Mastodon</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <!-- Posts go here -->
             <?php
             foreach (getMastodonPosts('php') as $post) {
                 ?>
@@ -66,6 +66,7 @@ function getMastodonPosts(string $tag)
                     </div>
                 </div>
             <?php } ?>
+
             <p>
                 Data retrieved from <a href="https://mastodon.social" target="_blank">mastodon.social</a>
             </p>
@@ -78,7 +79,6 @@ function getMastodonPosts(string $tag)
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- DNS Info goes here -->
                     <?php
                     foreach ($mastodonDns as $key => &$value) {
                         echo '<tr>';

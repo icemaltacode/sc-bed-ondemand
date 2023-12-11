@@ -12,7 +12,7 @@ class DBConnect
     {
         $env = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/.env');
         $this->dbh = new PDO(
-            "mysql:host=localhost;dbname=JobApp",
+            "mysql:host=mariadb;dbname=JobApp",
             $env['DB_USER'],
             $env['DB_PASS'],
             array(PDO::ATTR_PERSISTENT => true)

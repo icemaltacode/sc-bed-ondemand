@@ -15,7 +15,7 @@ if (PHP_SAPI == 'cli-server') {
 }
 /** ------------------------------------------------------------------------------------------ */
 
-require_once '../../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 use \Twig\Loader\FilesystemLoader;
 use \Twig\Environment;

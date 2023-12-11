@@ -1,3 +1,4 @@
 .env
 src/client/lib/*
 vendor
+docker/log/*

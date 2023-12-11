@@ -17,6 +17,7 @@ $phpAge = $phpReleaseDate->diff(new DateTime());
             <?= $phpAge->y ?> years of heritage!
         </p>
     </div>
+
     <?php include 'includes/footer.php' ?>
 </body>
 

@@ -1,1 +1,0 @@
-php -S localhost:8000 src/api/index.php

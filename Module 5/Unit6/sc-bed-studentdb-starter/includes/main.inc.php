@@ -36,6 +36,7 @@ function saveValue(string $key, mixed $value, bool $json = false, int $exp = 262
 $studentList = loadValue('studentList', true) ?? [];
 $sortBy = loadValue('sortBy') ?? null;
 
+
 // Determine action
 $action = null;
 if (filter_var($_SERVER['REQUEST_METHOD'], FILTER_DEFAULT) === 'POST') {
@@ -95,6 +96,8 @@ function sortStudents()
         uasort($studentList, fn($a, $b) => $a[$sortBy] <=> $b[$sortBy]);
     }
 }
+
+
 ?>
 
 <div class="grid gap-0 row-gap-3">
@@ -151,7 +154,6 @@ function sortStudents()
                         </thead>
                         <tbody>
                             <?php
-                            // TODO Show results here
                             foreach ($studentList as $key => $student) {
                                 printf(
                                     '<tr><td>%3d</td><td>%s</td><td>%s</td><td>%d</td><td>%s</td></tr>',

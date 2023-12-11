@@ -9,8 +9,9 @@
     <div class="container">
         <h1>PHP Summary</h1>
         <?php
-            printf('<p>You are running PHP %s</p>', phpversion());
+        printf('<p>You are running PHP %s</p>', phpversion());
         ?>
+
         <div class="card">
             <div class="card-header">
                 Loaded Extensions

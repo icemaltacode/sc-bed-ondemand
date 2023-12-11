@@ -6,6 +6,30 @@ require 'com/icemalta/todopal/util/ApiUtil.php';
 use com\icemalta\todopal\model\{User, AccessToken, Todo};
 use com\icemalta\todopal\util\ApiUtil;
 
+
+/**
+ * Endpoints (** = not implemented)
+ * 
+ * GET
+ *  /todopal/api/todo - Get all todos for user
+ *  /todopal/api/todo/:id - Get specific todo **
+ *  /todopal/api/token - Check if a token is valid
+ * 
+ * POST
+ *  /todopal/api/login - Login (returns a token)
+ *  /todopal/api/logout - Logout
+ *  /todopal/api/user - Register user
+ *  /todopal/api/todo - Add a todo
+ * 
+ * PATCH
+ *  /todopal/api/user - Modify user **
+ *  /todopal/api/todo - Modify a todo
+ * 
+ * DELETE
+ *  /todopal/api/user/:id - Delete user **
+ *  /todopal/api/todo/:id - Delete a todo
+ */
+
 cors();
 
 $endPoints = [];
@@ -14,18 +38,6 @@ header("Content-Type: application/json; charset=UTF-8");
 
 /* BASE URI */
 $BASE_URI = '/todopal/api/';
-
-function sendResponse(mixed $data = null, int $code = 200, mixed $error = null): void
-{
-    if (!is_null($data)) {
-        $response['data'] = $data;
-    }
-    if (!is_null($error)) {
-        $response['error'] = $error;
-    }
-    echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    http_response_code($code);
-}
 
 /* Get Request Data */
 $requestMethod = $_SERVER['REQUEST_METHOD'];
@@ -64,6 +76,20 @@ if (isset($_SERVER["HTTP_X_API_KEY"])) {
     $requestData["token"] = $_SERVER["HTTP_X_API_KEY"];
 }
 
+/* Response Function */
+function sendResponse(mixed $data = null, int $code = 200, mixed $error = null): void
+{
+    if (!is_null($data)) {
+        $response['data'] = $data;
+    }
+    if (!is_null($error)) {
+        $response['error'] = $error;
+    }
+    echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    http_response_code($code);
+}
+
+/* Token Function */
 function checkToken(array $requestData): bool
 {
     if (!isset($requestData['token']) || !isset($requestData['user'])) {
@@ -76,10 +102,6 @@ function checkToken(array $requestData): bool
 /* EndPoint Handlers */
 $endpoints["/"] = function (string $requestMethod, array $requestData): void {
     sendResponse('Welcome to TodoPal API!');
-};
-
-$endpoints["404"] = function (string $requestMethod, array $requestData): void {
-    sendResponse(null, 404, "Endpoint " . $requestData["endPoint"] . " not found.");
 };
 
 $endpoints["user"] = function (string $requestMethod, array $requestData): void {
@@ -131,18 +153,6 @@ $endpoints["logout"] = function (string $requestMethod, array $requestData): voi
     }
 };
 
-$endpoints["token"] = function (string $requestMethod, array $requestData): void {
-    if ($requestMethod === 'GET') {
-        if (checkToken($requestData)) {
-            sendResponse(['valid' => true, 'token' => $requestData['token']]);
-        } else {
-            sendResponse(['valid' => false, 'token' => $requestData['token']]);
-        }
-    } else {
-        sendResponse(null, 405, 'Method not allowed.');
-    }
-};
-
 $endpoints["todo"] = function (string $requestMethod, array $requestData): void {
     if (checkToken($requestData)) {
         if ($requestMethod === 'GET') {
@@ -184,6 +194,23 @@ $endpoints["todo"] = function (string $requestMethod, array $requestData): void 
     }
 };
 
+$endpoints["token"] = function (string $requestMethod, array $requestData): void {
+    if ($requestMethod === 'GET') {
+        if (checkToken($requestData)) {
+            sendResponse(['valid' => true, 'token' => $requestData['token']]);
+        } else {
+            sendResponse(['valid' => false, 'token' => $requestData['token']]);
+        }
+    } else {
+        sendResponse(null, 405, 'Method not allowed.');
+    }
+};
+
+$endpoints["404"] = function (string $requestMethod, array $requestData): void {
+    sendResponse(null, 404, "Endpoint " . $requestData["endPoint"] . " not found.");
+};
+
+/* Call The EndPoint */
 function cors()
 {
     // Allow from any origin
@@ -220,3 +247,4 @@ try {
 } catch (Error $e) {
     sendResponse(null, 500, $e->getMessage());
 }
+

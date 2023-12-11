@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <?php include 'includes/head.php' ?>
+
 <body>
-<?php include 'includes/menu.php' ?>
+    <?php include 'includes/menu.php' ?>
 
     <div class="container">
-        
         <h1>MariaDB</h1>
         <p>MariaDB is a community-developed, commercially supported fork of the MySQL relational database management system (RDBMS), 
             intended to remain free and open-source software under the GNU General Public License. 

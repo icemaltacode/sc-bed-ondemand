@@ -95,7 +95,9 @@ if (filter_var($_SERVER['REQUEST_METHOD'], FILTER_UNSAFE_RAW, FILTER_NULL_ON_FAI
         }
     }
 }
+
 ?>
+
 <div class="grid gap-0 row-gap-3">
     <div class="p-2 g-col-12">
         <div class="card">
@@ -129,7 +131,7 @@ if (filter_var($_SERVER['REQUEST_METHOD'], FILTER_UNSAFE_RAW, FILTER_NULL_ON_FAI
                     <div class="row mb-3 gy-2">
                         <div class="col-sm-5">
                             <label for="convert_accuracy" class="form-label">Accuracy: <span
-                                    id="accuracy_label">3</span> decimal places</label>
+                                    id="accuracy_label"><?= $accuracy ?></span> decimal places</label>
                             <input type="range" name="convert_accuracy" id="convert_accuracy" class="form-range" min="0"
                                 max="5" step="1" value="<?= $accuracy ?>" oninput="updateAccuracy()">
                         </div>
@@ -150,7 +152,7 @@ if (filter_var($_SERVER['REQUEST_METHOD'], FILTER_UNSAFE_RAW, FILTER_NULL_ON_FAI
     ?>
     <div class="p-2 g-col-12">
         <div class="card">
-            <div class="card-body">w
+            <div class="card-body">
                 <?php
                 if (isset($result)) {
                     printf("<h3>%.{$accuracy}f%s = %.{$accuracy}f%s</h3>", $result['fromValue'], $result['fromUnit'], $result['toValue'], $result['toUnit']);

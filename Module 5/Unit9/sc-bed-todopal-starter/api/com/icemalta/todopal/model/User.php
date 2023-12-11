@@ -15,7 +15,7 @@ class User implements JsonSerializable
     private $password;
     private $accessLevel = 'user';
 
-    public function __construct(string $email, string $password, ?string $accessLevel = 'user', ?int $id = 0)
+    public function __construct(string $email, string $password, ?string $accessLevel = 'user', ?int $id = 0) 
     {
         $this->email = $email;
         $this->password = $password;
@@ -79,9 +79,9 @@ class User implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'id' => $this->id,
-            'email' => $this->email,
-            'accessLevel' => $this->accessLevel
+            'id'=> $this->id,
+            'email'=> $this->email,
+            'accessLevel'=> $this->accessLevel
         ];
     }
 

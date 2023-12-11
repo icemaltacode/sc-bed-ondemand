@@ -124,4 +124,5 @@ class Product
         $sth->execute();
         return $sth->rowCount();
     }
+
 }

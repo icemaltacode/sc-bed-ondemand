@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", init);
 
-const BASE_URI = 'http://localhost:8000/todopal/api/';
+const BASE_URI = 'http://api/todopal/api/';
 let todos = [];
 
 function init() {

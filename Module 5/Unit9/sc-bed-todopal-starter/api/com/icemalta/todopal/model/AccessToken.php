@@ -59,7 +59,7 @@ class AccessToken implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'token' => $this->token
+            'token'=> $this->token
         ];
     }
 

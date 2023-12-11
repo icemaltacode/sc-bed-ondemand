@@ -14,6 +14,7 @@ function displayDirStruct($dir)
     echo '</ul>';
 }
 ?>
+
 <!doctype html>
 <html lang="en">
 

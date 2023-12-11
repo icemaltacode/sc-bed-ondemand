@@ -7,7 +7,7 @@ class DBConnect
     private function __construct()
     {
         $this->dbh = new PDO(
-            "mysql:host=localhost;dbname=ShoppingCart",
+            "mysql:host=mariadb;dbname=ShoppingCart",
             "root",
             "root",
             array(PDO::ATTR_PERSISTENT => true)

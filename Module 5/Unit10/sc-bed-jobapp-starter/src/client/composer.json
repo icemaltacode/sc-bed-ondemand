@@ -10,8 +10,8 @@
     },
     "scripts": {
         "post-update-cmd": [
-            "rm -rf client/lib/bootstrap",
-            "rm -rf client/lib/bootstrap-icons",
+            "rm -rf lib/bootstrap",
+            "rm -rf lib/bootstrap-icons",
             "cp -R vendor/twbs/bootstrap/dist lib/bootstrap",
             "cp -R vendor/twbs/bootstrap-icons/font lib/bootstrap-icons"
         ]

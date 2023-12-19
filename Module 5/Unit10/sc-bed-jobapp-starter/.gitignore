@@ -2,3 +2,4 @@
 src/client/lib/*
 vendor
 docker/log/*
+composer.lock
